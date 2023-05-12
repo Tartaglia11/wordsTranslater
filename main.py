@@ -1,16 +1,15 @@
-# This is a sample Python script.
-
-# Press Shift+F10 to execute it or replace it with your code.
-# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
-
-
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press Ctrl+F8 to toggle the breakpoint.
+def get_list_of_words(filename):
+    with open(filename, encoding="utf-8") as file:
+        text = file.read()
+    text = text.replace("\t", "")
+    text = text.lower()
+    list_of_words = text.split("\n")
+    return list_of_words
 
 
-# Press the green button in the gutter to run the script.
+def main():
+    print(get_list_of_words('dictionary.txt'))
+
+
 if __name__ == '__main__':
-    print_hi('PyCharm')
-
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
+    main()
