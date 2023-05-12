@@ -14,7 +14,7 @@ def select_words(filename):
     lst = get_list_of_words(filename)
     index = random.randint(0, len(lst))
     random_word = lst[index]
-    couple_of_words = random_word.split('-')
+    couple_of_words = random_word.split('-', 1)
 
     return couple_of_words
 
@@ -30,7 +30,7 @@ def main():
         print("You have ", lives, " lives")
         print("Translated word: ", first_word)
         translate = input("Enter a translation: ")
-        if translate == second_word:
+        if translate.lower() == second_word:
             print("It's correct!", end="\n\n\n")
         else:
             print("You were make a mistake! The right answer is " + second_word, end="\n\n\n")
