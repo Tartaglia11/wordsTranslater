@@ -20,16 +20,23 @@ def select_words(filename):
 
 
 def main():
-    couple_of_words = select_words('dictionary.txt')
-    first_word = couple_of_words[0].strip()
-    second_word = couple_of_words[1].strip()
+    lives = 5
 
-    print("Translated word: ", first_word)
-    translate = input("Enter a translation: ")
-    if translate == second_word:
-        print("It's correct!")
-    else:
-        print("You were make a mistake!")
+    while lives > 0:
+        couple_of_words = select_words('dictionary.txt')
+        first_word = couple_of_words[0].strip()
+        second_word = couple_of_words[1].strip()
+
+        print("You have ", lives, " lives")
+        print("Translated word: ", first_word)
+        translate = input("Enter a translation: ")
+        if translate == second_word:
+            print("It's correct!", end="\n\n\n")
+        else:
+            print("You were make a mistake! The right answer is " + second_word, end="\n\n\n")
+            lives -= 1
+
+    print("You spent all your lives! :( Game Over")
 
 
 if __name__ == '__main__':
